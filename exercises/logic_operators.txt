@@ -1,0 +1,19 @@
+Also called Boolean Operators
+they combine, exclude or negate conditions
+
+AND combine two conditions and is only TRUE if both conditions are TRUE
+
+OR combines two conditions and is only TRUE if either condition is TRUE
+
+NOT reverses the truth of a condition
+    TRUE becomes FALSE
+    FALSE becomes TRUE
+
+IN  combines several OR operators
+    it returns TRUE if a value is within a list of possible values
+
+BETWEEN combines the > and < comparison operators
+        it returns TRUE if a value is within specified values
+
+LIKE matches a string to a pattern
+     it returns true if a string matches the search pattern 
