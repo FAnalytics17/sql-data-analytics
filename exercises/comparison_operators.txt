@@ -1,0 +1,10 @@
+used with WHERE to specify filter conditions
+
+equals =
+not equals <>  !=
+less than <
+greater than >
+less than or equal to <=
+greater than or equal to >=
+
+the results is they return data in a row if the condition is TRUE
