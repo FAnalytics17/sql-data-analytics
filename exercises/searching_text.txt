@@ -1,0 +1,17 @@
+LIKE is used with a WHERE clause to search for a specified pattern in a text based column. 
+
+these patterns can be expressed using wild cards
+
+wildcards - symbols that can represent any characters a-z A-Z 0-9 & symbols
+
+SQL wildcards
+      underscore(_) represents a single character
+      e.g a search pattern like h_t    returns  hat, hut, het, hit
+
+      percentage(%) represents multiple characters
+      e.g search pattern like 'south%' returns south africa, south africa, southern
+
+  SQL QUERY
+  SELECT *
+  FROM db.tb
+  WHERE columnA LIKE '_at%;
