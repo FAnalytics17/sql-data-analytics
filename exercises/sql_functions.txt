@@ -1,0 +1,34 @@
+SQL functions - are built in operators
+              - used to perform calculations, manipulation and transformations
+  
+Div into 2 categories
+    i.  Aggregate functions - summarizes entire columns into one value
+    ii. Scalar functions - manipulate data row by row
+
+Advantages
+-efficiency - lightening fast commands
+-reliability and compatibility 
+-built in support and documentation
+-extensive functionality - perform complex calcs, manipulations & datetime transformations
+-portability - migrations and scability
+-ease of use
+
+types of functions
+Numeric - performs calculation in a column and returns single numeric value
+          SUM()  COUNT()   MIN() SQRT()  AVG()   MAX()   POWER()  ROUND()
+  
+String - they operate on string values
+       - perform operation i.e concatenation
+                               manipulation
+                               text formatting
+        CONCAT()  LENGTH()  UPPER()  LOWER()  SUBSTRING()
+  
+Datetime - handle date and time values
+        - performs operations like formatting, extraction, manipulation
+        CURRENT_DATE()  DATEADD()  FORMAT()
+  
+Conditional flow - allows for conditional logic in SQL queries
+        CASE()  IF() IIF()
+
+Miscellaneous - variety of function that perform variety of things such as converting data types & dealing with NULL values
+          CONVERT()  NULLIF()  CAST()  IFNULL()
