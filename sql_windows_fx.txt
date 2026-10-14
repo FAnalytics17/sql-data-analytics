@@ -1,0 +1,14 @@
+they allow for calculating running totals or finding maximum group values e.g highest paid employee(max) per department(grouped)
+they conduct operations across related rows , aggregate fx summarizes single column or columns
+
+types of window functions
+I.Aggregate
+  AVG()  MIN()  MAX()   SUM()  COUNT()
+
+II. Ranking
+  ROW_NUMBER - ranks unique rows (i.e 1,2,3,4....n)
+  RANK ties are skipped 1,2,2,4,4,4,7,8
+  DENSE_RANK rank sequentially and keeps numeric order i.e 1,2,2,3,3,3,4,5 where, 2 items tie and are given number 2 and the next is given number 3
+
+III. Analytical
+  LAG()  LEAD()  FIRST_VALUE()  LAST_VALUE()
