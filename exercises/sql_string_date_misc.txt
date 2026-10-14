@@ -1,0 +1,35 @@
+CAST()
+  used to convert a value from its current data type into a specified data type
+  e.g datetime to date
+
+query syntax
+  SELECT Date_of_birth
+      CAST(Date_of_birth AS DATE) AS New_Date_of_birth
+  FROM database.table;
+
+CONVERT()
+  used to convert from one data type to another
+    e.g weight from FLOAT to DECIMAL
+
+  Query syntax
+    SELECT weight
+    CONVERT (weight, DECIMAL(4,2)) AS new_weight
+    FROM database.table;
+
+IFNULL()
+    evaluates a column and if it finds NULL it returns a specified value
+  -- otherwise it returns the value of expression itself
+
+  query syntax
+    SELECT highest_education
+        IFNULL(highest_education, 'No schooling') AS new_highest_education
+    FROM database.tablename;
+operation 
+-- checks the highest education column for null values, IF TRUE it returns alternative value 'No schooling'
+
+NULLIF
+  compare two expressions and returns NULL if they are equal
+   syntax
+    SELECT age
+      NULLIF(age, 0) AS new_age
+      FROM database.table;
