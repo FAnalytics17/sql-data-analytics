@@ -1,6 +1,16 @@
 --Add subquery to calculate Caribbean countries' share of land area
+SELECT 
+Sub_region,
+Country_name,
+ROUND(Land_area/ (SELECT
+	 SUM(Land_area)
+FROM access_to_basic_services
+WHERE Time_period = 2020
+AND Sub_region LIKE '%Caribbean%'
+					
+				) * 100) AS pct_pie
 
-Use a scalar subquery to sum Land_area for Caribbean sub-region
-countries in 2020, then divide each country's Land_area by that total
-and multiply by 100 to get its percentage share (pct_pie). Round the
-result to a whole number.
+FROM united_nations.access_to_basic_services
+WHERE Time_period = 2020
+
+AND Sub_region LIKE '%Caribbean%'
