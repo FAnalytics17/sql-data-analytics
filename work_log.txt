@@ -1,0 +1,60 @@
+Work Log: SQL to Power BI
+
+A running log of my data analytics learning. SQL practice is complete and I am now starting Power BI.
+
+Summary
+Phase	Dates	Status
+SQL	11 Oct to 21 Nov 2026	Complete
+Power BI	From 21 Nov 2026	Started
+Phase 1: SQL
+Skills practiced
+Combining result sets: UNION, UNION ALL
+Joins: INNER JOIN, LEFT JOIN, multi-table joins across 3 to 4 tables
+Subqueries: scalar subqueries and derived tables
+CTEs (WITH) for readable, step-by-step logic
+Window functions: RANK() OVER, AVG() OVER (PARTITION BY ...)
+Conditional logic: CASE WHEN, IFNULL, pivoting with SUM(CASE WHEN ...)
+String and number functions: CONCAT, ROUND, FLOOR, CAST
+Filtering with LIKE, WHERE, and comparisons against averages
+Creating objects: CREATE VIEW, CREATE TABLE (with primary key, foreign key, CHECK, and DEFAULT), and INSERT INTO ... SELECT
+Databases and projects
+1. United Nations (country indicators)
+Query	What it does
+Oceania and Sub-Saharan Africa unemployment	UNION of two regions, using IFNULL to fill missing unemployment values
+Caribbean land area share	Scalar subquery to calculate each country's percentage of the sub-region's land area
+Land area share by sub-region	Derived table that totals land area per sub-region, joined back to each country
+High GDP, low water access (2020)	Countries above the average GDP with under 90% managed drinking water
+Small land, large population (2020)	Countries below the average land area and above the average population
+Eastern Africa low water, below-average GDP	CTE with a window average to flag low-water, below-average-GDP countries
+2. Chinook (music store)
+Query	What it does
+Customers and employees	UNION ALL of names, cities, and emails from two tables
+Managers and IT staff	UNION of employees filtered by title
+Most recent hire per title	CTE with RANK() OVER (PARTITION BY Title)
+3. Northwind
+Query	What it does
+Orders with employee territories	Four-table join linking orders to employees and territories
+4. Maji Ndogo water services
+
+A multi-step project on water access, data quality, and planning improvements.
+
+Step	What it does
+Auditor report vs visits	Joined auditor data to visit records by location
+Matching scores	Found first visits where auditor and employee quality scores agree
+Mismatched scores	Listed first visits where scores differ, with both source types for comparison
+combined_analysis_table view	Flattened visits, locations, sources, and well pollution results into one reusable view
+Province pivot	Used a CTE and SUM(CASE WHEN) to show each province's water source mix as percentages
+project_progress table	Created a tracker with a foreign key, a status CHECK, and a default of Backlog
+Improvements query	CASE logic to assign a fix to each source (RO filter, UV and RO filter, drill well, extra taps, diagnose infrastructure)
+Populate tracker	INSERT INTO ... SELECT to load the sources needing work into project_progress
+Drill well priority	Ranked "Drill well" projects within each province by people served
+5. TMDB (movies)
+Query	What it does
+Genres by title search	Walked a many-to-many link (movies, genre map, genres) to list genres for a title
+Lessons learned
+Always check whether a join multiplies rows (several visits per source, several territories per employee). Filters like visit_count = 1 prevent double counting.
+NULL comparisons are never true, so rows with missing values can quietly drop out of a WHERE clause.
+Filter the subquery and the outer query to the same year when comparing against an average.
+Prefix columns with table aliases to keep queries clear as schemas grow.
+Views and CTEs make later analysis simpler by avoiding repeated joins.
+Check an INSERT ... SELECT for column order and run it only once, or rows will be duplicated.
